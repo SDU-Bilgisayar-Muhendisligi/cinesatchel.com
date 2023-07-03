@@ -5,13 +5,16 @@ import { useNavigate } from "react-router-dom";
 const SideBar = () => {
   const navigate = useNavigate();
   const navigateToAdminPanel = () => {
-    navigate('/adminPanel');
+    navigate('/dashboard');
   }
   const navigateToVideos = () => {
-    navigate('/adminPanel/videos');
+    navigate('/videoList');
   }
   const navigateToAddVideo = () => {
-    navigate('/adminPanel/addVideo');
+    navigate('/addVideo');
+  }
+  const navigateToHome = () => {
+    navigate('/');
   }
   
   return (
@@ -26,8 +29,9 @@ const SideBar = () => {
         <hr />
         <div className="buttons">
             <button className="dashboardBtn" onClick={navigateToAdminPanel}>Dashboard</button>
-            <button className="videosBtn" onClick={navigateToVideos}>Videos</button>
-            <button className="addVideoBtn" onClick={navigateToAddVideo}>Add Video</button>
+            <button className="dashboardBtn" onClick={navigateToVideos}>Videos</button>
+            <button className="dashboardBtn" onClick={navigateToAddVideo}>Add Video</button>
+            <button className="dashboardBtn" onClick={navigateToHome}>Homepage</button>
         </div>
     </div>
   )

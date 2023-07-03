@@ -20,8 +20,8 @@
         position: fixed;
         
         .overlay {
-            width: 50%;
-            height: 80%;
+            width: 30%;
+            height: 85%;
             margin-top: 5%;
             margin-left: auto;
             margin-right: auto;
@@ -33,6 +33,15 @@
             .modalContent {
                 display: flex;
                 flex-direction: column;
+
+                .closeModal{
+                    height: 28px;
+                    background-color: lightgray;
+                    font-family: 'Bahnschrift';
+                    border: 3px solid;
+                    border-color: black;
+                    border-radius: 8px;
+                }
 
                 .registerLabel {
                     margin-left: auto;
@@ -50,16 +59,16 @@
                     
                     label {
                         margin-top: 1%;
-                        margin-left: auto;
-                        margin-right: auto;
+                        margin-left: 5%;
+                        //margin-right: auto;
                         font-family: 'Bahnschrift';
-                        font-size: 30px;
+                        font-size: 20px;
                     }
 
                     input {
                         margin: 1%;
-                        margin-left: auto;
-                        margin-right: auto;
+                        margin-left: 5%;
+                        margin-right: 5%;
                         font-family: 'Bahnschrift';
                         font-size: 20px;
                         border-radius: 5px;

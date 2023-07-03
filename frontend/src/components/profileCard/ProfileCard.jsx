@@ -1,5 +1,6 @@
-import { Movie, RemoveCircleOutline } from "@mui/icons-material";
-import "./listCard.scss"
+import { PersonPin, RemoveCircleOutline } from "@mui/icons-material"
+import "./profileCard.scss"
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Button from '@mui/material/Button';
@@ -9,28 +10,31 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function ListCard({ item, index }) {
-  const [list, setList] = useState({});
+export default function ProfileCard({ item, index}) {
+  const navigate = useNavigate();
+  const navigateToHome = () => {
+    navigate('/')
+  }
+  const [profile, setProfile] = useState({});
+  const userId = JSON.parse(localStorage.getItem("user"))._id;
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const getList = async () => {
+    const getProfile = async () => {
       try {
-        const res = await axios.get(
-          `api/users/find/${JSON.parse(localStorage.getItem("user"))._id}/profiles/find/${
-            JSON.parse(localStorage.getItem("user")).selectedprofile}/lists/find/` + item, {
+        const res = await axios.get(`api/users/find/${userId}/profiles/find/` + item, {
           headers: { 
             token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
           }
         });
         //console.log(res)
-        setList(res.data);
+        setProfile(res.data);
       } catch (err) {
         console.log(err);
       }
     };
-    getList();
-  }, [item]);
+    getProfile();
+  }, [userId, item]);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -40,11 +44,27 @@ export default function ListCard({ item, index }) {
     setOpen(false);
   };
 
+  const handleSelect = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.put(`api/users/${userId}/profiles/`, { selectedprofile: profile._id }, {
+        headers: { 
+          token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
+        }
+      });
+      let localUser = JSON.parse(localStorage.getItem("user"));
+      localUser.selectedprofile = profile._id;
+      localStorage.setItem("user", JSON.stringify(localUser));
+      navigateToHome();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      await axios.delete(`api/users/${JSON.parse(localStorage.getItem("user"))._id}/profiles/${
-        JSON.parse(localStorage.getItem("user")).selectedprofile}/lists/` + item, {
+      await axios.delete(`api/users/${userId}/profiles/` + item, {
         headers: { 
           token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
         }
@@ -53,21 +73,23 @@ export default function ListCard({ item, index }) {
     } catch (err) {
       console.log(err);
     }
-  } 
+  };
 
   return (
-    <div className="listCard">
+    <div className="profileCard">
       <RemoveCircleOutline className="deleteIcon" onClick={handleClickOpen} />
-      <div className="listBox">
-        <h2>{list.listname}</h2>
-        <Movie className="centerIcon"/>
+      <div className="profileBox" onClick={handleSelect}>
+        <label>{profile.profilename}</label>
+        <PersonPin className="profileIcon" />
       </div>
+      <div>
       <Dialog
         open={open}
         onClose={handleDelete}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         sx={{
+          
           color: 'black'
         }}
       >
@@ -91,7 +113,7 @@ export default function ListCard({ item, index }) {
               color: 'white'
             }}
           >
-            Are you sure you want to delete "{list.listname}"?
+            Are you sure you want to delete "{profile.profilename}"?
           </DialogContentText>
         </DialogContent>
         <DialogActions
@@ -113,6 +135,7 @@ export default function ListCard({ item, index }) {
           >Delete</Button>
         </DialogActions>
       </Dialog>
+      </div>
     </div>
   )
 }

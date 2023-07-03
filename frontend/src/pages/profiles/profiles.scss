@@ -1,45 +1,47 @@
-.myLists {
+.profiles {
     width: 100vw;
     height: 100vh;
-    background-color: var(--main-color);
-    overflow-x: hidden;
-
+    background: radial-gradient(circle, rgba(196,103,47,1) 0%, rgba(0,0,0,1) 100%);
+    position: fixed;
+    
     .container {
-        width: 99%;
-        height: 100%;
-        margin-top: 100px;
-        margin-left: 10px;
-        margin-left: 10px;
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        row-gap: 20px;
-        column-gap: 20px;
-        
-        .addList {
-            width: 300px;
-            height: 300px;
+        width: 600px;
+        height: 600px;
+        margin-top: 10%;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 100px;
+        grid-row-gap: 100px;
+
+        .addProfile {
+            width: 250px;
+            height: 250px;
             background-color: black;
-            border-radius: 10px;
+            border-radius: 35px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             cursor: pointer;
 
-            h2 {
-                color: var(--main-color);
-                font-family: 'Bahnschrift'; 
+            label {
+                font-family: 'Bahnschrift';
                 font-size: 20px;
+                color: var(--main-color);
+                cursor: pointer;
             }
 
-            .centerIcon {
-                width: 150px;
-                height: 150px;
+            .profileIcon {
+                margin-top: 20px;
+                width: 100px;
+                height: 100px;
                 color: var(--main-color);
             }
         }
-        
+
         .modal {
             width: 100vw;
             height: 100vh;
@@ -50,8 +52,8 @@
             position: fixed;
 
             .overlay {
-                width: 30%;
-                height: 50%;
+                width: 40%;
+                height: 65%;
                 margin-top: 10%;
                 margin-left: auto;
                 margin-right: auto;
@@ -73,7 +75,7 @@
                         border-radius: 8px;
                     }
 
-                    .listLabel {
+                    .profileLabel {
                         margin-left: auto;
                         margin-right: auto;
                         margin-top: 7.5%;
@@ -83,7 +85,7 @@
                         font-size: 45px;
                     }
                     
-                    .listFormInfo {
+                    .profileFormInfo {
                         display: flex;
                         flex-direction: column;
                         color: white;
@@ -123,15 +125,5 @@
                 }
             }
         }
-        
-        .bot {
-            width: 99%;
-            height: 50px;
-            background-color: black;
-        }
     }
-}
-
-body.active-modal {
-    overflow-y: hidden;
 }

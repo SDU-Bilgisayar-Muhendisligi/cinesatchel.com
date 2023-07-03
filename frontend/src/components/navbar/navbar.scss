@@ -4,7 +4,7 @@
     background-color: black;
     position: fixed;
     top: 0;
-    font-size: 15px;
+    font-size: 15;
     font-family: 'Bahnschrift';  
     color: white;
     display: flex;
@@ -32,7 +32,29 @@
     .right {
         display: flex;
         align-items: center;
-        margin-right: 20px;
+        margin-right: 35px;
+
+        select {
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            padding: 5px;
+            width: 200px;
+            font-size: 20px;
+            font-family: 'Bahnschrift'; 
+            margin-right: 50px;
+        }
+
+        .adminPanelButton {
+            width: 200px;
+            font-size: 20px;
+            font-family: 'Bahnschrift'; 
+            margin-right: 20px;
+            border-radius: 5px;
+            color: white;
+            border-color: var(--main-color);
+            background-color: var(--main-color);
+        }
 
         .account {
             .options {

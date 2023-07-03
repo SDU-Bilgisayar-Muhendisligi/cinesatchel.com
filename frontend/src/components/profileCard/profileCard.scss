@@ -1,8 +1,8 @@
-.listCard {
-    width: 300px;
-    height: 300px;
+.profileCard {
+    width: 250px;
+    height: 250px;
     background-color: black;
-    border-radius: 10px;
+    border-radius: 35px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,23 +22,26 @@
         }
     }
     
-    .listBox {
+    .profileBox {
+        width: 250px;
+        height: 250px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         cursor: pointer;
 
-        h2 {
-            color: var(--main-color);
-            font-family: 'Bahnschrift'; 
+        label {
+            font-family: 'Bahnschrift';
             font-size: 20px;
+            color: var(--main-color);
             margin-top: 50px;
+            cursor: pointer;
         }
 
-        .centerIcon {
-            width: 150px;
-            height: 150px;
+        .profileIcon {
+            margin-top: 20px;
+            width: 100px;
+            height: 100px;
             color: var(--main-color);
         }
     }

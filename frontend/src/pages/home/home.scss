@@ -3,25 +3,31 @@
     height: 100vh;
     background-color: var(--main-color);
     overflow-x: hidden;
-
+    
     .container {
         //position: relative;
-        width: 100%;
+        width: 99%;
         height: 100%;
         margin-top: 90px;
         margin-left: 10px;
-        margin-left: 10px;
-
-        h2 {
+        margin-right: 10px;
+        
+        .popularTitle {
             width: 250px;
             height: 25px;
             font-family: 'Bahnschrift'; 
             background-color: rgba(0, 0, 0, 0.3);
             padding: 10px;
+            border-radius: 5px;
+            border: 2px solid;
         }
 
         .popular {
             display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            row-gap: 10px;
+            column-gap: 10px;
         }
 
         hr {
@@ -36,12 +42,10 @@
         .feedRow {
             display: flex;
             margin-bottom: 20px;
-        }
-
-        .bot {
-            width: 99%;
-            height: 50px;
-            background-color: black;
+            justify-content: center;
+            flex-wrap: wrap;
+            row-gap: 10px;
+            column-gap: 10px;
         }
     }
 }

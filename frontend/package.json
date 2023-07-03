@@ -25,6 +25,9 @@
     "sass": "^1.62.1",
     "web-vitals": "^2.1.4"
   },
+  "overrides": {
+    "webpack":"5.82.1"
+   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
