@@ -1,5 +1,4 @@
 import "./videoCard.scss"
-import coverImage from "../../utils/contents/lotr/lotrCover.jpg"
 import { useNavigate } from "react-router-dom";
 
 const VideoCard = () => {
@@ -10,7 +9,7 @@ const VideoCard = () => {
   return (
     <div className="videoCard">
         <img 
-          src={coverImage}
+          src=""
           alt=""
           onClick={navigateToplayer}
         />

@@ -1,28 +1,26 @@
-import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import { Route, Routes, BrowserRouter as Router, Navigate } from "react-router-dom";
 import "./index.scss"
 import Home from "./pages/home/Home";
 import Welcome from "./pages/welcome/Welcome";
-import AdminPanel from "./pages/adminPanel/AdminPanel";
-import Videos from "./pages/adminPanel/videos/Videos";
-import AddVideo from "./pages/adminPanel/addVideo/AddVideo";
-import Movies from "./pages/home/movies/Movies";
-import Series from "./pages/home/series/Series";
 import MyLists from "./pages/myLists/MyLists";
 import Player from "./pages/player/Player";
+import AccountDetails from "./pages/accountDetails/AccountDetails";
+import Profiles from "./pages/profiles/Profiles";
+import { useContext } from "react";
+import { AuthContext } from "./context/authContext/AuthContext";
 
 export function App() {
+  const { user } = useContext(AuthContext);
+  
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/browse" element={<Home />} />
-        <Route path="/browse/movies" element={<Movies />} />
-        <Route path="/browse/series" element={<Series />} />
-        <Route path="/browse/myLists" element={<MyLists />} />
-        <Route path="/player" element={<Player />} />
-        <Route path="/adminPanel" element={<AdminPanel />} />
-        <Route path="/adminPanel/videos" element={<Videos />} />
-        <Route path="/adminPanel/addVideo" element={<AddVideo />} />
+        <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+        <Route path="/login" element={!user ? <Welcome /> : <Navigate to="/" />} />
+        <Route path="/profiles" element={user ? <Profiles /> : <Navigate to="/login" />} />
+        <Route path="/myLists" element={user ? <MyLists /> : <Navigate to="/login" />} />
+        <Route path="/accountDetails" element={user ? <AccountDetails /> : <Navigate to="/login" />} />
+        <Route path="/player" element={user ? <Player /> : <Navigate to="/login" />} />
       </Routes>
     </Router>
   )
