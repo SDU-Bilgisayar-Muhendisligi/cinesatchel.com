@@ -31,7 +31,7 @@ const MyLists = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(process.env.REACT_API_KEY + `api/users/${JSON.parse(localStorage.getItem("user"))._id}/profiles/${
+      await axios.post(process.env.REACT_API_KEY+`api/users/${JSON.parse(localStorage.getItem("user"))._id}/profiles/${
         JSON.parse(localStorage.getItem("user")).selectedprofile}/lists`, newList, {
         headers: { 
           token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
@@ -47,7 +47,7 @@ const MyLists = () => {
   useEffect(() => {
     const getMyLists = async () => {
       try {
-        const res = await axios.get(process.env.REACT_API_KEY + 
+        const res = await axios.get(process.env.REACT_API_KEY+
           `api/users/${JSON.parse(localStorage.getItem("user"))._id}/profiles/${
             JSON.parse(localStorage.getItem("user")).selectedprofile}/lists`, {
           headers: { 

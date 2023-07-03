@@ -16,7 +16,7 @@ export default function ListCard({ item, index }) {
   useEffect(() => {
     const getList = async () => {
       try {
-        const res = await axios.get(process.env.REACT_API_KEY + 
+        const res = await axios.get(process.env.REACT_API_KEY+
           `api/users/find/${JSON.parse(localStorage.getItem("user"))._id}/profiles/find/${
             JSON.parse(localStorage.getItem("user")).selectedprofile}/lists/find/` + item, {
           headers: { 

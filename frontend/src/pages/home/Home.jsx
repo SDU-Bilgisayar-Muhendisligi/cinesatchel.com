@@ -16,7 +16,7 @@ const Home = ({ format }) => {
   useEffect(()=>{
     const getVideoList = async () => {
       try {
-        const res = await axios.get(process.env.REACT_API_KEY + `api/videos/${format ? "?format=" + format : ""}${format && category ? "&category=" + category : ""}`, {
+        const res = await axios.get(process.env.REACT_API_KEY+`api/videos/${format ? "?format=" + format : ""}${format && category ? "&category=" + category : ""}`, {
           headers: { 
             token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
           }
@@ -30,7 +30,7 @@ const Home = ({ format }) => {
     const getSearchFeed = async () => {
       if (term !== null && term !== "") {
         try {
-          const res = await axios.get(process.env.REACT_API_KEY + `api/videos/search/${term ? "?term=" + term : ""}`, {
+          const res = await axios.get(process.env.REACT_API_KEY+`api/videos/search/${term ? "?term=" + term : ""}`, {
             headers: { 
               token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
             }
@@ -44,7 +44,7 @@ const Home = ({ format }) => {
     };
     const getPopular = async () => {
       try {
-        const res = await axios.get(process.env.REACT_API_KEY + `api/videos/popular`, {
+        const res = await axios.get(process.env.REACT_API_KEY+`api/videos/popular`, {
           headers: { 
             token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
           }
@@ -72,24 +72,29 @@ const Home = ({ format }) => {
           <>
             <h2 className="popularTitle">Popular on Cinesatchel</h2>
             <div className="popular">
-            {popular.map((video, index) => (
-                <VideoCard item={video} key={index} />
-              ))}
+              {Array.isArray(popular) ? (
+                popular.map((video, index) => (
+                  <VideoCard item={video} key={index} />
+                ))
+              ) : null}
             </div>
             <hr></hr>
           </>
         )}
         {term !== null && searchFeed.length !== 0 ? (
           <div className="feedRow">
-            {searchFeed.map((video, index) => (
-              <VideoCard item={video} key={index} />
-            ))}
+            {Array.isArray(searchFeed) ? 
+              searchFeed.map((video, index) => (
+                <VideoCard item={video} key={index} />
+              )) : null}
           </div>
         ) : (
           <div className="feedRow">
-            {videoList.map((video, index) => (
-              <VideoCard item={video} key={index} />
-            ))}
+            {Array.isArray(videoList) ?
+              videoList.map((video, index) => (
+                <VideoCard item={video} key={index} />
+              )) : null
+            }
           </div>
         )}
       </div>
