@@ -3,45 +3,21 @@
     height: 100vh;
     background-color: var(--main-color);
     overflow-x: hidden;
-
+    
     .container {
-        //position: relative;
-        width: 100%;
+        width: 99%;
         height: 100%;
         margin-top: 90px;
         margin-left: 10px;
-        margin-left: 10px;
-
-        h2 {
-            width: 250px;
-            height: 25px;
-            font-family: 'Bahnschrift'; 
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 10px;
-        }
-
-        .popular {
-            display: flex;
-        }
-
-        hr {
-            width: 95%;
-            height: 5px;
-            background-color: black;
-            border: none;
-            margin-bottom: 20px;
-            margin-top: 20px;
-        }
-
+        margin-right: 10px;
+        
         .feedRow {
             display: flex;
             margin-bottom: 20px;
-        }
-
-        .bot {
-            width: 99%;
-            height: 50px;
-            background-color: black;
+            justify-content: center;
+            flex-wrap: wrap;
+            row-gap: 10px;
+            column-gap: 10px;
         }
     }
 }
