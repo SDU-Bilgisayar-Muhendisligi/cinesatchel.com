@@ -22,7 +22,7 @@ export default function ProfileCard({ item, index}) {
   useEffect(() => {
     const getProfile = async () => {
       try {
-        const res = await axios.get(process.env.REACT_API_KEY+`api/users/find/${userId}/profiles/find/` + item, {
+        const res = await axios.get(`${process.env.REACT_API_KEY}api/users/find/${userId}/profiles/find/` + item, {
           headers: { 
             token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
           }

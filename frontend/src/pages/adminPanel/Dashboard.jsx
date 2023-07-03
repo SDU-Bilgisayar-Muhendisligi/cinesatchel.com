@@ -12,7 +12,7 @@ const Dashboard = () => {
     useEffect(() => {
         const getUserCount = async () => {
             try {
-                const res = await axios.get(process.env.REACT_API_KEY+"api/users/statistic", {
+                const res = await axios.get(`${process.env.REACT_API_KEY}api/users/statistic`, {
                     headers: { 
                         token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
                     }
@@ -25,7 +25,7 @@ const Dashboard = () => {
         }
         const getMoviesCount = async () => {
             try {
-                const res = await axios.get(process.env.REACT_API_KEY+"api/videos/moviesStats", {
+                const res = await axios.get(`${process.env.REACT_API_KEY}api/videos/moviesStats`, {
                     headers: { 
                         token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
                     }
@@ -38,7 +38,7 @@ const Dashboard = () => {
         }
         const getSeriesCount = async () => {
             try {
-                const res = await axios.get(process.env.REACT_API_KEY+"api/videos/seriesStats", {
+                const res = await axios.get(`${process.env.REACT_API_KEY}api/videos/seriesStats`, {
                     headers: { 
                         token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
                     }
