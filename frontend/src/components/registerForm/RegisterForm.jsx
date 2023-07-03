@@ -37,7 +37,7 @@ export default function RegisterForm() {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("api/auth/register", newUser);
+            await axios.post(process.env.REACT_API_KEY + "api/auth/register", newUser);
             setRegistered(true);
             setOpen(true);
         } catch (err) {

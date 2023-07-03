@@ -44,7 +44,7 @@ const Navbar = ({ format, setCategory, setTerm }) => {
     const handleLogout = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`api/users/${JSON.parse(localStorage.getItem("user"))._id}/profiles`, { selectedprofile: null }, {
+            await axios.put(process.env.REACT_API_KEY + `api/users/${JSON.parse(localStorage.getItem("user"))._id}/profiles`, { selectedprofile: null }, {
               headers: { 
                 token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
               }
@@ -60,7 +60,7 @@ const Navbar = ({ format, setCategory, setTerm }) => {
         if (JSON.parse(localStorage.getItem("user")).selectedprofile !== null) {
             const getProfile = async () => {
             try {
-                const res = await axios.get(`api/users/find/${JSON.parse(localStorage.getItem("user"))._id}/profiles/find/` + JSON.parse(localStorage.getItem("user")).selectedprofile, {
+                const res = await axios.get(process.env.REACT_API_KEY + `api/users/find/${JSON.parse(localStorage.getItem("user"))._id}/profiles/find/` + JSON.parse(localStorage.getItem("user")).selectedprofile, {
                 headers: { 
                     token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
                 }

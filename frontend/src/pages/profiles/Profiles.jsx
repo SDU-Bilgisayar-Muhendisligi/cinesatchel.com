@@ -29,7 +29,7 @@ const Profiles = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`api/users/${userId}/profiles`, newProfile, {
+      await axios.post(process.env.REACT_API_KEY + `api/users/${userId}/profiles`, newProfile, {
         headers: { 
           token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
         }
@@ -43,7 +43,7 @@ const Profiles = () => {
   useEffect(() => {
     const getProfileList = async () => {
       try {
-        const res = await axios.get(`api/users/${userId}/profiles`, {
+        const res = await axios.get(process.env.REACT_API_KEY + `api/users/${userId}/profiles`, {
           headers: { 
             token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
           }
