@@ -61,8 +61,7 @@ const Navbar = ({ format, setCategory, setTerm }) => {
         if (JSON.parse(localStorage.getItem("user")).selectedprofile !== null) {
             const getProfile = async () => {
             try {
-                const res = await axios.get(`https://cinesatchel-com-backend.vercel.app/api/users/find/${JSON.parse(localStorage.getItem("user"))._id}
-                /profiles/find/` + JSON.parse(localStorage.getItem("user")).selectedprofile, {
+                const res = await axios.get(`https://cinesatchel-com-backend.vercel.app/api/users/find/${JSON.parse(localStorage.getItem("user"))._id}/profiles/find/` + JSON.parse(localStorage.getItem("user")).selectedprofile, {
                 headers: { 
                     token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
                 }
