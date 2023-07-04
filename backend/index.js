@@ -21,7 +21,7 @@ const options = {
     origin: ['*', 'https://cinesatchel-com-full.vercel.app'],
     credentials: true,
     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
-    allowedHeaders: ['Origin', 'X-Api-Key', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization']
+    allowedHeaders: ['Origin', 'X-Api-Key', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization', 'token']
 }
 app.use(cors(options));
 
