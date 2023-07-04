@@ -25,7 +25,7 @@ router.get("/find/:videoid", verifyToken, async (req, res) => {
         if (video.ratings.length > 0) {
             await Video.aggregate([ { $match: { _id: video._id } }, { $unwind: '$ratings' },
             { $group: { _id: '$_id', avarageRate: { $avg: '$ratings.rate' } } } ])
-                .then( res => video.puan = res[0].avarageRate);
+                .then( res => video.puan = res[0].avarageRate.toFixed(1));
         }
         returnMessage(res, 200, video);
     } catch (err) {
