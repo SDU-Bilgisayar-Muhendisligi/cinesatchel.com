@@ -18,11 +18,10 @@ mongoose
     .catch((err) => console.log(err));
 
 app.use(cors({
-    
-    Credentials: true,
     origin: '*',
-    allowedHeaders: 'Content-Type',
-    methods: 'GET,PUT,POST,DELETE'
+    credentials: true,
+    methods: 'POST, PUT, PATCH, GET, DELETE, OPTIONS',
+    allowedHeaders: 'Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization'
 }));/*
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'https://cinesatchel-com-full.vercel.app');
