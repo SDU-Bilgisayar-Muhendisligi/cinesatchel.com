@@ -9,7 +9,7 @@ const videoRoute = require("./routes/videos");
 dotenv.config();
 
 mongoose
-    .connect(process.env.MONGODB_URI, {
+    .connect(process.env.MONGODB_URI.toString(), {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
