@@ -16,7 +16,10 @@ mongoose
     })
     .then(() => console.log("DB connected"))
     .catch((err) => console.log(err));
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 const options = {
     origin: ['*', 'https://cinesatchel-com-full.vercel.app'],
     credentials: true,
