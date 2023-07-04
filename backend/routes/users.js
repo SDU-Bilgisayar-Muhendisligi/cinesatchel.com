@@ -4,7 +4,6 @@ const verifyToken = require("../functions/verifyToken");
 const User = require("../models/User");
 const Profile = require("../models/Profile");
 const List = require("../models/List");
-const Video = require("../models/Video");
 const CryptoJS = require("crypto-js");
 
 // Get User
@@ -197,23 +196,6 @@ router.get("/:userid/profiles/:profileid/lists", verifyToken, async (req, res) =
     }
 });
 
-// Add video to list
-router.put("/:userid/profiles/:profileid/lists/:listid", verifyToken, async (req, res) => {
-    const user = await User.findById(req.params.userid).select("selectedprofile");
-    const { selectedprofile, ...info } = user._doc;
-    if(selectedprofile === req.params.profileid) {
-        try {
-            await List.updateOne({ _id: req.params.listid }, 
-                { $push: { videos: req.body.videos }, }, { new: true });
-            const list = await List.findById(req.params.listid);
-            returnMessage(res, 200, list);
-        } catch (err) {
-            returnMessage(res, 400, err);
-        }
-    } else {
-        returnMessage(res, 404, "Something went wrong")
-    }
-});
 
 // Delete List
 router.delete("/:userid/profiles/:profileid/lists/:listid", verifyToken, async (req, res) => {
