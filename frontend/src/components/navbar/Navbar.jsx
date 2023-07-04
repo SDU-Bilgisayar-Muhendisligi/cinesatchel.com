@@ -44,7 +44,7 @@ const Navbar = ({ format, setCategory, setTerm }) => {
     const handleLogout = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`${process.env.REACT_API_KEY}api/users/${JSON.parse(localStorage.getItem("user"))._id}/profiles`, { selectedprofile: null }, {
+            await axios.put(`https://cinesatchel-com-backend.vercel.app/api/users/${JSON.parse(localStorage.getItem("user"))._id}/profiles`, { selectedprofile: null }, {
               headers: { 
                 token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
               }
