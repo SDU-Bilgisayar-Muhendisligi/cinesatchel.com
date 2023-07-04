@@ -18,9 +18,10 @@ mongoose
     .catch((err) => console.log(err));
 
 app.use(cors({
-    origin: '*',
+    
     Credentials: true,
-    allowedHeaders: 'Content-Type,Authorization',
+    origin: '*',
+    allowedHeaders: 'Content-Type',
     methods: 'GET,PUT,POST,DELETE'
 }));/*
 app.use((req, res, next) => {
