@@ -17,7 +17,7 @@ mongoose
     .catch((err) => console.log(err));
 
 app.use(cors({
-    origin: 'https://cinesatchel-com-full.vercel.app',
+    origin: '*',
     Credentials: true,
     allowedHeaders: 'Content-Type,Authorization',
     methods: 'GET,PUT,POST,DELETE'
