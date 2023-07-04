@@ -16,13 +16,19 @@ mongoose
     .then(() => console.log("DB connected"))
     .catch((err) => console.log(err));
 
+app.use(cors({
+    origin: 'https://cinesatchel-com-full.vercel.app',
+    Credentials: true,
+    allowedHeaders: 'Content-Type,Authorization',
+    methods: 'GET,PUT,POST,DELETE'
+}));/*
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'https://cinesatchel-com-full.vercel.app');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Credentials', true);
     res.header('Access-Control-Allow-Headers', "Content-Type");
     next();
-});
+});*/
 
 app.use(express.json());
 app.use("/api/auth", authRoute);
