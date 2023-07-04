@@ -9,7 +9,7 @@ const cors = require("cors")
 
 dotenv.config();
 
-mongoose
+await mongoose
     .connect(process.env.MONGODB_URI.toString(), {
         useNewUrlParser: true,
         useUnifiedTopology: true
