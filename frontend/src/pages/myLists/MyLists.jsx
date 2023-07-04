@@ -48,8 +48,7 @@ const MyLists = () => {
     const getMyLists = async () => {
       try {
         const res = await axios.get(
-          `https://cinesatchel-com-backend.vercel.app/api/users/${JSON.parse(localStorage.getItem("user"))._id}/profiles/${
-            JSON.parse(localStorage.getItem("user")).selectedprofile}/lists`, {
+          `https://cinesatchel-com-backend.vercel.app/api/users/${JSON.parse(localStorage.getItem("user"))._id}/profiles/${JSON.parse(localStorage.getItem("user")).selectedprofile}/lists`, {
           headers: { 
             token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
           }

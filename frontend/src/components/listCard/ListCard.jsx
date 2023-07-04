@@ -17,8 +17,7 @@ export default function ListCard({ item, index }) {
     const getList = async () => {
       try {
         const res = await axios.get(
-          `https://cinesatchel-com-backend.vercel.app/api/users/find/${JSON.parse(localStorage.getItem("user"))._id}/profiles/find/${
-            JSON.parse(localStorage.getItem("user")).selectedprofile}/lists/find/` + item, {
+          `https://cinesatchel-com-backend.vercel.app/api/users/find/${JSON.parse(localStorage.getItem("user"))._id}/profiles/find/${JSON.parse(localStorage.getItem("user")).selectedprofile}/lists/find/` + item, {
           headers: { 
             token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
           }
@@ -43,8 +42,7 @@ export default function ListCard({ item, index }) {
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      await axios.delete(`api/users/${JSON.parse(localStorage.getItem("user"))._id}/profiles/${
-        JSON.parse(localStorage.getItem("user")).selectedprofile}/lists/` + item, {
+      await axios.delete(`api/users/${JSON.parse(localStorage.getItem("user"))._id}/profiles/${JSON.parse(localStorage.getItem("user")).selectedprofile}/lists/` + item, {
         headers: { 
           token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
         }
