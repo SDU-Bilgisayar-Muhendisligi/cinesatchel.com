@@ -16,6 +16,7 @@ mongoose
     })
     .then(() => console.log("DB connected"))
     .catch((err) => console.log(err));
+app.use(express.json());
 const options = {
     origin: ['*', 'https://cinesatchel-com-full.vercel.app'],
     credentials: true,
@@ -24,7 +25,7 @@ const options = {
 }
 app.use(cors(options));
 
-app.use(express.json());
+
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/videos", videoRoute);
