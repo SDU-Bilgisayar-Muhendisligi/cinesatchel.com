@@ -53,7 +53,7 @@ export default function LoginForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`${process.env.REACT_API_KEY}api/users/changePassword`, uptUser);
+            await axios.put(`https://cinesatchel-com-backend.vercel.app/api/users/changePassword`, uptUser);
             setUpdated(true);
             setOpen(true);
         } catch (err) {

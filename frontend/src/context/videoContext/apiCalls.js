@@ -17,7 +17,7 @@ import {
 export const getVideos = async (dispatch) => {
   dispatch(getVideosStart());
   try {
-    const res = await axios.get(`${process.env.REACT_API_KEY}api/videos/allvideos`, {
+    const res = await axios.get(`https://cinesatchel-com-backend.vercel.app/api/videos/allvideos`, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
@@ -31,7 +31,7 @@ export const getVideos = async (dispatch) => {
 export const addVideo = async (video, dispatch) => {
   dispatch(addVideoStart());
   try {
-    const res = await axios.post(`${process.env.REACT_API_KEY}api/videos/`, video, {
+    const res = await axios.post(`https://cinesatchel-com-backend.vercel.app/api/videos/`, video, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
@@ -45,7 +45,7 @@ export const addVideo = async (video, dispatch) => {
 export const updateVideo = async (video, id, dispatch) => {
   dispatch(updateVideoStart());
   try {
-    const res = await axios.put(`${process.env.REACT_API_KEY}api/videos/${id}`, video, {
+    const res = await axios.put(`https://cinesatchel-com-backend.vercel.app/api/videos/${id}`, video, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
@@ -59,7 +59,7 @@ export const updateVideo = async (video, id, dispatch) => {
 export const deleteVideo = async (id, dispatch) => {
   dispatch(deleteVideoStart());
   try {
-    await axios.delete(`${process.env.REACT_API_KEY}api/videos/` + id, {
+    await axios.delete(`https://cinesatchel-com-backend.vercel.app/api/videos/` + id, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },

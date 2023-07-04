@@ -16,7 +16,7 @@ const Home = ({ format }) => {
   useEffect(()=>{
     const getVideoList = async () => {
       try {
-        const res = await axios.get(`${process.env.REACT_API_KEY}api/videos/${format ? "?format=" + format : ""}${
+        const res = await axios.get(`https://cinesatchel-com-backend.vercel.app/api/videos/${format ? "?format=" + format : ""}${
           format && category ? "&category=" + category : ""}`, {
           headers: { 
             token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 

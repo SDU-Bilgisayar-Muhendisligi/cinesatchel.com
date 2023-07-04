@@ -26,7 +26,7 @@ export default function VideoCard({ item, index }) {
   useEffect(() => {
     const getVideo = async () => {
       try {
-        const res = await axios.get(`${process.env.REACT_API_KEY}api/videos/find/` + item, {
+        const res = await axios.get(`https://cinesatchel-com-backend.vercel.app/api/videos/find/` + item, {
           headers: { 
             token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
           }
@@ -44,7 +44,7 @@ export default function VideoCard({ item, index }) {
     e.preventDefault();
     const selectedRating = e.target.value;
     try {
-      await axios.put(`${process.env.REACT_API_KEY}api/videos/rate/${item}`, { ratings: [{ ratedby: profile, rate: selectedRating  }] }, {
+      await axios.put(`https://cinesatchel-com-backend.vercel.app/api/videos/rate/${item}`, { ratings: [{ ratedby: profile, rate: selectedRating  }] }, {
         headers: { 
           token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
         }

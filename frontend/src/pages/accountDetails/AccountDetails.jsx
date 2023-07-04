@@ -31,7 +31,7 @@ const AccountDetails = () => {
     const handleDelete = async (e) => {
         e.preventDefault();
         try {
-          await axios.delete(`${process.env.REACT_API_KEY}api/users/${user._id}`, {
+          await axios.delete(`https://cinesatchel-com-backend.vercel.app/api/users/${user._id}`, {
             headers: { 
               token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
             }

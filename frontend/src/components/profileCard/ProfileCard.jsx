@@ -22,7 +22,7 @@ export default function ProfileCard({ item, index}) {
   useEffect(() => {
     const getProfile = async () => {
       try {
-        const res = await axios.get(`${process.env.REACT_API_KEY}api/users/find/${userId}/profiles/find/` + item, {
+        const res = await axios.get(`https://cinesatchel-com-backend.vercel.app/api/users/find/${userId}/profiles/find/` + item, {
           headers: { 
             token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
           }
@@ -47,7 +47,7 @@ export default function ProfileCard({ item, index}) {
   const handleSelect = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(process.env.REACT_API_KEY+`api/users/${userId}/profiles/`, { selectedprofile: profile._id }, {
+      await axios.put(`https://cinesatchel-com-backend.vercel.app/api/users/${userId}/profiles/`, { selectedprofile: profile._id }, {
         headers: { 
           token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
         }
@@ -64,7 +64,7 @@ export default function ProfileCard({ item, index}) {
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      await axios.delete(process.env.REACT_API_KEY+`api/users/${userId}/profiles/` + item, {
+      await axios.delete(`https://cinesatchel-com-backend.vercel.app/api/users/${userId}/profiles/` + item, {
         headers: { 
           token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
         }
