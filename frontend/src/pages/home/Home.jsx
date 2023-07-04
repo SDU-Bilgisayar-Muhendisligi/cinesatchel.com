@@ -16,7 +16,7 @@ const Home = ({ format }) => {
   useEffect(()=>{
     const getVideoList = async () => {
       try {
-        const res = await axios.get(`https://cinesatchel-com-backend.vercel.app/api/videos/${format ? "?format=" + format : ""}${
+        const res = await axios.get(`https://cinesatchel-com-backend.vercel.app/api/videos${format ? "?format=" + format : ""}${
           format && category ? "&category=" + category : ""}`, {
           headers: { 
             token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
@@ -31,7 +31,7 @@ const Home = ({ format }) => {
     const getSearchFeed = async () => {
       if (term !== null && term !== "") {
         try {
-          const res = await axios.get(`${process.env.REACT_API_KEY}api/videos/search/${term ? "?term=" + term : ""}`, {
+          const res = await axios.get(`https://cinesatchel-com-backend.vercel.app/api/videos/search${term ? "?term=" + term : ""}`, {
             headers: { 
               token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
             }
@@ -45,7 +45,7 @@ const Home = ({ format }) => {
     };
     const getPopular = async () => {
       try {
-        const res = await axios.get(`${process.env.REACT_API_KEY}api/videos/popular`, {
+        const res = await axios.get(`https://cinesatchel-com-backend.vercel.app/api/videos/popular`, {
           headers: { 
             token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
           }
