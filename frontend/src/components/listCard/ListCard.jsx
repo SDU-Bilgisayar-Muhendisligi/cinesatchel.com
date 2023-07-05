@@ -41,7 +41,7 @@ export default function ListCard({ item, index }) {
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      await axios.delete(`api/users/${JSON.parse(localStorage.getItem("user"))._id}/profiles/${JSON.parse(localStorage.getItem("user")).selectedprofile}/lists/` + item, {
+      await axios.delete(`https://cinesatchel-com-backend.vercel.app/api/users/${JSON.parse(localStorage.getItem("user"))._id}/profiles/${JSON.parse(localStorage.getItem("user")).selectedprofile}/lists/` + item, {
         headers: { 
           token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
         }
