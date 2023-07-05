@@ -67,7 +67,7 @@ const Home = ({ format }) => {
 
   return (
     <div className="home">
-      <Navbar format={format} setCategory={setCategory} setTerm={setTerm}/>
+      <Navbar format={format} setCategory={setCategory} setTerm={setTerm} page="home"/>
       <div className="container">
         {!format && term === null && (
           <>

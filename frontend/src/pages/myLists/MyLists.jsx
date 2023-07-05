@@ -64,7 +64,7 @@ const MyLists = () => {
 
   return (
     <div className="myLists">
-        <Navbar />
+        <Navbar page="list" />
         <div className="container">
         {myLists.map((list, index) => (
           <ListCard item={list} key={index} />

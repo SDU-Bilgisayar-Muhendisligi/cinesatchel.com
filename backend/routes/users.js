@@ -164,7 +164,7 @@ router.post("/:userid/profiles/:profileid/lists", verifyToken, async (req, res) 
 });
 
 // Get List
-router.get("find/:userid/profiles/find/:profileid/lists/find/:listid", verifyToken, async (req, res) => {
+router.get("/find/:userid/profiles/find/:profileid/lists/find/:listid", verifyToken, async (req, res) => {
     const user = await User.findById(req.params.userid).select("selectedprofile");
     const { selectedprofile, ...info } = user._doc;
     if(selectedprofile === req.params.profileid) {

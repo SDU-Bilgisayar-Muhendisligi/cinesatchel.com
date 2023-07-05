@@ -7,7 +7,7 @@ import { AuthContext } from "../../context/authContext/AuthContext";
 import { logout } from "../../context/authContext/AuthActions";
 import axios from "axios";
 
-const Navbar = ({ format, setCategory, setTerm }) => {
+const Navbar = ({ format, setCategory, setTerm, page }) => {
     const navigate = useNavigate();
     const [isScrolled, setIsScrolled] = useState(false);
     const { dispatch } = useContext(AuthContext);
@@ -112,7 +112,7 @@ const Navbar = ({ format, setCategory, setTerm }) => {
             {user.isAdmin && !format && (
                 <button className="adminPanelButton" onClick={navigateToAdminPanel}>Admin Panel</button>
             )}
-            {!format && (
+            {page === "home" && !format && (
                 <SearchBar setTerm={setTerm} />
             )}
             <div className="account">

@@ -49,6 +49,7 @@ export default function VideoCard({ item, index }) {
           token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken, 
         }
       })
+      window.location.reload(false);
     } catch (err) {
       console.log(err);
     }

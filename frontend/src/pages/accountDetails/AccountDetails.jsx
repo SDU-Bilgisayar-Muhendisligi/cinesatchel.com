@@ -45,7 +45,7 @@ const AccountDetails = () => {
     
   return (
     <div className="accountDetails">
-        <Navbar />
+        <Navbar page="account" />
         <div className="container">
             <div className="top">
                 <label className="accountTitle">{user.username}</label>
